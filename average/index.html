@@ -40,6 +40,18 @@
 				sum += Number(prompt((i+1) + '번 숫자를 입력해주세요'));
 			}
 			alert('평균값은 '+ sum/totalNumbers + '입니다');
+			
+			/*
+			while : 또 다른 반복문
+			*/
+			sum = 0;
+			totalNumbers = 3;
+			let i = 0;//반복을 위한 변수
+			while(i < totalNumbers){
+				sum += Number(prompt((i+1) + '번 숫자를 입력해주세요'));
+				i++;
+			}
+			alert('평균값은 ' + sum/totalNumbers + '입니다');
 		</script>
 	</head>
 	<body>
