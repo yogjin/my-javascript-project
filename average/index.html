@@ -30,6 +30,16 @@
 			v3은 숫자이므로 'number'이다.
 			*/
 			alert(typeof v3);
+			
+			/*
+			for : 가장 많이 쓰이는 반복문
+			*/
+			let sum = 0;//총합 : 전역변수
+			let totalNumbers = 3;//전체 숫자의 개수
+			for(let i = 0; i < totalNumbers; i++){
+				sum += Number(prompt((i+1) + '번 숫자를 입력해주세요'));
+			}
+			alert('평균값은 '+ sum/totalNumbers + '입니다');
 		</script>
 	</head>
 	<body>
