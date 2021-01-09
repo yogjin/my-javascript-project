@@ -25,9 +25,12 @@ else{
 	else{
 		comInput = '보';
 	}
-
+	
+	//가위,바위,보 게임의 승패 정하기
 	if(userInput === '가위'){
-		
+		if(comInput === '가위') alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
+		else if(comInput === '바위') alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
+		else alert('컴퓨터: ' + comInput + '\n컴퓨터에게 이겼습니다!');
 	}
 }
 
