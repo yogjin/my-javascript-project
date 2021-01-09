@@ -1,7 +1,11 @@
+const SCISSORS = '가위';
+const ROCK = '바위';
+const PAPER = '보';
+
 let userInput = prompt('가위, 바위, 보!');
 
 //사용자의 입력 검증하기
-if(userInput !== '가위' && userInput !== '바위' && userInput !== '보'){
+if(userInput !== SCISSORS && userInput !== ROCK && userInput !== PAPER){
 	alert('가위, 바위, 보 중 하나를 입력해야 합니다!');
 } 
 else{
@@ -17,19 +21,19 @@ else{
 	*/
 
 	if(rnd < 0.33){//가위
-		comInput = '가위';
+		comInput = SCISSORS;
 	}
 	else if(rnd < 0.66){
-		comInput = '바위';
+		comInput = ROCK;
 	}
 	else{
-		comInput = '보';
+		comInput = PAPER;
 	}
 	
 	//가위,바위,보 게임의 승패 정하기
-	if(userInput === '가위'){
-		if(comInput === '가위') alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
-		else if(comInput === '바위') alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
+	if(userInput === SCISSORS){
+		if(comInput === SCISSORS) alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
+		else if(comInput === ROCK) alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
 		else alert('컴퓨터: ' + comInput + '\n컴퓨터에게 이겼습니다!');
 	}
 }
