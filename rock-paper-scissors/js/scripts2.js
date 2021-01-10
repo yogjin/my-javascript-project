@@ -26,19 +26,21 @@ function onButtonClick(userInput){//userInput === 가위,바위,보
 	}
 	
 	//가위,바위,보 게임의 승패 정하기
+	let result = '컴퓨터: ' + comInput;//결과 출력string
 	if(userInput === SCISSORS){//유저 : 가위
-		if(comInput === SCISSORS) alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
-		else if(comInput === ROCK) alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
-		else alert('컴퓨터: ' + comInput + '\n컴퓨터에게 이겼습니다!');
+		if(comInput === SCISSORS) result += '\n컴퓨터와 비겼습니다.';
+		else if(comInput === ROCK) result += '\n컴퓨터에게 졌습니다..';
+		else result += '\n컴퓨터에게 이겼습니다!';
 	}
 	else if(userInput === ROCK){//유저 : 바위
-		if(comInput === SCISSORS) alert('컴퓨터: ' + comInput + '\n컴퓨터에게 이겼습니다!');
-		else if(comInput === ROCK) alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
-		else alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
+		if(comInput === SCISSORS) result += '\n컴퓨터에게 이겼습니다!';
+		else if(comInput === ROCK) result += '\n컴퓨터와 비겼습니다.';
+		else result += '\n컴퓨터에게 졌습니다..';
 	}
 	else{//유저 : 보
-		if(comInput === SCISSORS) alert('컴퓨터: ' + comInput + '\n컴퓨터에게 졌습니다..');
-		else if(comInput === ROCK) alert('컴퓨터: ' + comInput + '\n컴퓨터에게 이겼습니다!');
-		else alert('컴퓨터: ' + comInput + '\n컴퓨터와 비겼습니다.');
-	}	
+		if(comInput === SCISSORS) result += '\n컴퓨터에게 졌습니다..';
+		else if(comInput === ROCK) result += '\n컴퓨터에게 이겼습니다!';
+		else result += '\n컴퓨터와 비겼습니다.';
+	}
+	alert(result);//결과 출력
 }
