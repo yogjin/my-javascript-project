@@ -23,10 +23,14 @@ function compare(a,b){
 result.sort(compare);
 */
 
+/*
 //익명함수 활용해서 정렬
 result.sort(function(a,b){
 	return a-b;
 });
+*/
+//allow function 활용해서 정렬
+result.sort((a,b) => a-b);
 //html화면에 출력
 for(let i = 0; i < 6; i++){
 	document.write('<span class="ball">'+result[i]+'</span>');
