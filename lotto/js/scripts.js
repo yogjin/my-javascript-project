@@ -14,7 +14,12 @@ for(let i = 0; i < 6; i++){
 	let num = list.splice(index,1);//index로 부터 1개 추출 == index값 추출
 	result.push(num);
 }
-
+//오름차순 정렬
+function compare(a,b){
+	return a-b;
+}
+//compare을 인자로 : 함수 자체를 전달해서 sort()가 알아서 비교함수를 실행하도록 한 것.compare()은 return값을 전달한다.
+result.sort(compare);
 //html화면에 출력
 for(let i = 0; i < 6; i++){
 	document.write('<span class="ball">'+result[i]+'</span>');
