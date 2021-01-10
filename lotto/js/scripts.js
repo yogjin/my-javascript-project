@@ -15,3 +15,7 @@ for(let i = 0; i < 6; i++){
 	result.push(num);
 }
 
+//html화면에 출력
+for(let i = 0; i < 6; i++){
+	document.write('<span class="ball">'+result[i]+'</span>');
+}
