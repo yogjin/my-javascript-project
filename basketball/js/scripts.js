@@ -12,6 +12,8 @@ function onComputerShoot(){
 	if(!isComputerTurn){
 		return;
 	}
+	//컴퓨터 슛 확률 설정
+	updateAI();
 	//슛 타입결정 : 2,3점슛 각각 50%확률로 쏜다 
 	let shootType = Math.random() < 0.5 ? 2 : 3;
 	if(shootType === 2){//2점슛
@@ -139,4 +141,26 @@ function disableUserButtons(flag){
 	for(let i = 0; i < userButtons.length; i++){
 		userButtons[i].disabled = flag;
 	}
+}
+
+//게임 상황에 맞는 확률 적용(ai개선)
+function updateAI() {
+	var diff = userScore - comScore;
+
+	if (diff > 10) {
+		comPercent2 = 0.7;
+		comPercent3 = 0.43;
+	} 
+	else if (diff > 6) {
+    	comPercent2 = 0.6;
+    	comPercent3 = 0.38;
+  	} 
+	else if (diff < -10) {
+    	comPercent2 = 0.3;
+    	comPercent3 = 0.23;
+  	} 
+	else if (diff < -6) {
+    	comPercent2 = 0.4;
+    	comPercent3 = 0.28;
+  }
 }
