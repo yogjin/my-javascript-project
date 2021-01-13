@@ -1,6 +1,7 @@
 let comScore = 0;
 let userScore = 0;
 let isComputerTurn = true;
+let shotsLeft = 15;
 
 function onComputerShoot(){
 	//컴퓨터의 차례가 아니면 바로 리턴
@@ -90,4 +91,11 @@ function onUserShoot(shootType){
 	for(let i = 0; i < computerButtons.length; i++){
 		computerButtons[i].disabled = false;
 	}
+	
+	//남은 슛 횟수 차감
+	let shotsLeftElem = document.getElementById('shots-left');
+	shotsLeft--;
+	shotsLeftElem.innerHTML = shotsLeft;
+	
+	
 }
