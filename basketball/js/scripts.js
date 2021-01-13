@@ -34,16 +34,11 @@ function onComputerShoot(){
 	}
 	isComputerTurn = false;//유저로 턴넘기기
 	
-	let computerButtons = document.getElementsByClassName('btn-computer');
+	
 	//컴퓨터가 슛한 후 버튼 비활성화
-	for(let i = 0; i < computerButtons.length; i++){
-		computerButtons[i].disabled = true;
-	}
-	let userButtons = document.getElementsByClassName('btn-user');
+	disableComputerButtons(true);
 	//유저 슛 버튼 활성화
-	for(let i = 0; i < userButtons.length; i++){
-		userButtons[i].disabled = false;
-	}
+	disableUserButtons(false);
 }
 
 function onUserShoot(shootType){
@@ -75,16 +70,11 @@ function onUserShoot(shootType){
 	}
 	isComputerTurn = true;//컴퓨터로 턴넘기기
 	
-	let userButtons = document.getElementsByClassName('btn-user');
+	
 	//컴퓨터가 슛한 후 버튼 비활성화
-	for(let i = 0; i < userButtons.length; i++){
-		userButtons[i].disabled = true;
-	}
-	let computerButtons = document.getElementsByClassName('btn-computer');
-	//컴퓨터의 슛 버튼 비활성화
-	for(let i = 0; i < computerButtons.length; i++){
-		computerButtons[i].disabled = false;
-	}
+	disableUserButtons(true);
+	//컴퓨터 슛 버튼 활성화
+	disableComputerButtons(false);
 	
 	//남은 슛 횟수 차감
 	let shotsLeftElem = document.getElementById('shots-left');
@@ -131,4 +121,22 @@ function updateUserScore(score){
 	userScore += score;
 	let userScoreElem = document.getElementById('user-score');
 	userScoreElem.innerHTML = userScore;
+}
+
+//컴퓨터버튼 비활성화/활성화 : flag
+function disableComputerButtons(flag){
+	let computerButtons = document.getElementsByClassName('btn-computer');
+	
+	for(let i = 0; i < computerButtons.length; i++){
+		computerButtons[i].disabled = flag;
+	}
+}
+
+//유저버튼 비활성화/활성화 : flag
+function disableUserButtons(flag){
+	let userButtons = document.getElementsByClassName('btn-user');
+	
+	for(let i = 0; i < userButtons.length; i++){
+		userButtons[i].disabled = flag;
+	}
 }
