@@ -88,12 +88,8 @@ function onUserShoot(shootType){
 	//경기가 끝난 경우 
 	if(shotsLeft === 0){
 		//모든 버튼 비활성화.
-		for(let i = 0; i < userButtons.length; i++){
-			userButtons[i].disabled = true;
-		}
-		for(let i = 0; i < computerButtons.length; i++){
-			computerButtons[i].disabled = true;
-		}
+		disableUserButtons(true);
+		disableComputerButtons(true);
 		//승,무,패 각각의 경우
 		if(userScore > comScore){//유저가 이긴경우
 			showText('승리했습니다!');
