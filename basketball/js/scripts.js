@@ -51,12 +51,11 @@ function onUserShoot(shootType){
 	if(isComputerTurn){
 		return;
 	}
-	let userScoreElem = document.getElementById('user-score');
 	if(shootType === 2){//2점슛
 		if(Math.random() < 0.5){
 			//2점슛 50%확률로 성공
 			showText('2점슛을 성공했습니다!');
-			userScore += 2;
+			updateUserScore(2);
 		}
 		else{
 			//실패시
@@ -67,14 +66,13 @@ function onUserShoot(shootType){
 		if(Math.random() < 0.33){
 			//3점슛 33%확률로 성공
 			showText('3점슛을 성공했습니다!');
-			userScore += 3;
+			updateUserScore(3);
 		}
 		else{
 			//실패시
 			showText('3점슛을 실패했습니다.');
 		}
 	}
-	userScoreElem.innerHTML = userScore;
 	isComputerTurn = true;//컴퓨터로 턴넘기기
 	
 	let userButtons = document.getElementsByClassName('btn-user');
@@ -126,4 +124,11 @@ function updateComputerScore(score){
 	comScore += score;
 	let comScoreElem = document.getElementById('computer-score');
 	comScoreElem.innerHTML = comScore;
+}
+
+//유저 점수 갱신
+function updateUserScore(score){
+	userScore += score;
+	let userScoreElem = document.getElementById('user-score');
+	userScoreElem.innerHTML = userScore;
 }
