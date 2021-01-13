@@ -1,5 +1,9 @@
 let comScore = 0;
+let comPercent2 = 0.5;//2점슛 성공확률
+let comPercent3 = 0.33;//3점슛 성공확률
 let userScore = 0;
+let userPercent2 = 0.5;
+let userPercent3 = 0.33;
 let isComputerTurn = true;
 let shotsLeft = 15;
 
@@ -11,7 +15,7 @@ function onComputerShoot(){
 	//슛 타입결정 : 2,3점슛 각각 50%확률로 쏜다 
 	let shootType = Math.random() < 0.5 ? 2 : 3;
 	if(shootType === 2){//2점슛
-		if(Math.random() < 0.5){
+		if(Math.random() < comPercent2){
 			//2점슛 50%확률로 성공
 			showText('컴퓨터가 2점슛을 성공했습니다!');
 			updateComputerScore(2);
@@ -22,7 +26,7 @@ function onComputerShoot(){
 		}
 	}
 	else{//3점슛
-		if(Math.random() < 0.33){
+		if(Math.random() < comPercent3){
 			//3점슛 33%확률로 성공
 			showText('컴퓨터가 3점슛을 성공했습니다!');
 			updateComputerScore(3);
@@ -47,7 +51,7 @@ function onUserShoot(shootType){
 		return;
 	}
 	if(shootType === 2){//2점슛
-		if(Math.random() < 0.5){
+		if(Math.random() < comPercent2){
 			//2점슛 50%확률로 성공
 			showText('2점슛을 성공했습니다!');
 			updateUserScore(2);
@@ -58,7 +62,7 @@ function onUserShoot(shootType){
 		}
 	}
 	else{//3점슛
-		if(Math.random() < 0.33){
+		if(Math.random() < comPercent3){
 			//3점슛 33%확률로 성공
 			showText('3점슛을 성공했습니다!');
 			updateUserScore(3);
