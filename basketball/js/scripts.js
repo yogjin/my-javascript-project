@@ -1,7 +1,12 @@
 let comScore = 0;
 let userScore = 0;
+let isComputerTurn = true;
 
 function onComputerShoot(){
+	//컴퓨터의 차례가 아니면 바로 리턴
+	if(!isComputerTurn){
+		return;
+	}
 	//슛 타입결정 : 2,3점슛 각각 50%확률로 쏜다 
 	let shootType = Math.random() < 0.5 ? 2 : 3;
 	let textElem = document.getElementById('text');
@@ -29,9 +34,14 @@ function onComputerShoot(){
 		}
 	}
 	comScoreElem.innerHTML = comScore;
+	isComputerTurn = false;//유저로 턴넘기기
 }
 
 function onUserShoot(shootType){
+	//컴퓨터 차례면 리턴
+	if(isComputerTurn){
+		return;
+	}
 	let textElem = document.getElementById('text');
 	let userScoreElem = document.getElementById('user-score');
 	if(shootType === 2){//2점슛
@@ -57,4 +67,5 @@ function onUserShoot(shootType){
 		}
 	}
 	userScoreElem.innerHTML = userScore;
+	isComputerTurn = true;//컴퓨터로 턴넘기기
 }
