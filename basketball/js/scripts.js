@@ -97,5 +97,24 @@ function onUserShoot(shootType){
 	shotsLeft--;
 	shotsLeftElem.innerHTML = shotsLeft;
 	
-	
+	//경기가 끝난 경우 
+	if(shotsLeft === 0){
+		//모든 버튼 비활성화.
+		for(let i = 0; i < userButtons.length; i++){
+			userButtons[i].disabled = true;
+		}
+		for(let i = 0; i < computerButtons.length; i++){
+			computerButtons[i].disabled = true;
+		}
+		//승,무,패 각각의 경우
+		if(userScore > comScore){//유저가 이긴경우
+			textElem.innerHTML = '승리했습니다!';
+		}
+		else if(userScore === comScore){//비긴경우
+			textElem.innerHTML = '비겼습니다.';
+		}
+		else{//유저가 진 경우
+			textElem.innerHTML = '졌습니다..';
+		}
+	}
 }
