@@ -90,9 +90,17 @@ function onUserShoot(shootType){
 function showText(s){
 	let $textElem = $('#text');
 	//나타났다가 사라지는 효과 적용
-	$textElem.fadeOut();
-	$textElem.html(s);
-	$textElem.fadeIn();
+	/*
+	fadeOut,fadeIn 함수는 비동기함수라서 콜백 함수를 인자로 받아서 사용한다.
+	비동기 함수 : 제어권을 다음코드에 넘겨주고 일처리는 그 이후에 이어서 수행하는 함수
+	콜백 함수 : 호출자가 비동기 함수를 호출할 때 
+			  '네가 알아서 일을 하다가 다 끝나면 내가 준 이 함수(콜백함수)를 실행시켜줘'
+			  라며 인자로 전달하는 함수
+	*/
+	$textElem.fadeOut(400, function(){
+		$textElem.html(s);
+		$textElem.fadeIn();
+	});
 }
 
 //컴퓨터 점수 갱신
