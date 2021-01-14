@@ -25,28 +25,14 @@ function onComputerShoot(){
 	updateAI();
 	//슛 타입결정 : 2,3점슛 각각 50%확률로 쏜다 
 	let shootType = Math.random() < 0.5 ? 2 : 3;
-	if(shootType === 2){//2점슛
-		if(Math.random() < computer.percent2){
-			//2점슛 50%확률로 성공
-			showText('컴퓨터가 2점슛을 성공했습니다!');
-			updateComputerScore(2);
-		}
-		else{
-			//실패시
-			showText('컴퓨터가 2점슛을 실패했습니다.');
-		}
+	if(Math.random() < computer['percent'+shootType]){
+		showText('컴퓨터가' + shootType + "점슛을 성공했습니다!");
+		updateComputerScore(shootType);
 	}
-	else{//3점슛
-		if(Math.random() < computer.percent3){
-			//3점슛 33%확률로 성공
-			showText('컴퓨터가 3점슛을 성공했습니다!');
-			updateComputerScore(3);
-		}
-		else{
-			//실패시
-			showText('컴퓨터가 3점슛을 실패했습니다.');
-		}
+	else{
+		showText('컴퓨터가' + shootType + "점슛을 실패했습니다.");
 	}
+	
 	game.isComputerTurn = false;//유저로 턴넘기기
 	
 	
@@ -61,28 +47,14 @@ function onUserShoot(shootType){
 	if(game.isComputerTurn){
 		return;
 	}
-	if(shootType === 2){//2점슛
-		if(Math.random() < user.percent2){
-			//2점슛 50%확률로 성공
-			showText('2점슛을 성공했습니다!');
-			updateUserScore(2);
-		}
-		else{
-			//실패시
-			showText('2점슛을 실패했습니다.');
-		}
+	if(Math.random() < user['percent'+shootType]){
+		showText(shootType + '점슛을 성공했습니다!');
+		updateUserScore(shootType);
 	}
-	else{//3점슛
-		if(Math.random() < user.percent3){
-			//3점슛 33%확률로 성공
-			showText('3점슛을 성공했습니다!');
-			updateUserScore(3);
-		}
-		else{
-			//실패시
-			showText('3점슛을 실패했습니다.');
-		}
+	else{
+		showText(shootType + '점슛을 실패했습니다!');
 	}
+	
 	game.isComputerTurn = true;//컴퓨터로 턴넘기기
 	
 	
