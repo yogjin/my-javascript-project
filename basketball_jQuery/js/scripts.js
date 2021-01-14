@@ -89,7 +89,10 @@ function onUserShoot(shootType){
 //text출력 함수
 function showText(s){
 	let $textElem = $('#text');
+	//나타났다가 사라지는 효과 적용
+	$textElem.fadeOut();
 	$textElem.html(s);
+	$textElem.fadeIn();
 }
 
 //컴퓨터 점수 갱신
