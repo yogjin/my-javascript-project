@@ -26,11 +26,11 @@ function onComputerShoot(){
 	//슛 타입결정 : 2,3점슛 각각 50%확률로 쏜다 
 	let shootType = Math.random() < 0.5 ? 2 : 3;
 	if(Math.random() < computer['percent'+shootType]){
-		showText('컴퓨터가' + shootType + "점슛을 성공했습니다!");
+		showText('컴퓨터가 ' + shootType + "점슛을 성공했습니다!");
 		updateComputerScore(shootType);
 	}
 	else{
-		showText('컴퓨터가' + shootType + "점슛을 실패했습니다.");
+		showText('컴퓨터가 ' + shootType + "점슛을 실패했습니다.");
 	}
 	
 	game.isComputerTurn = false;//유저로 턴넘기기
