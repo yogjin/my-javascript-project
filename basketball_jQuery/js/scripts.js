@@ -108,6 +108,7 @@ function updateComputerScore(score){
 	computer.score += score;
 	let $comScoreElem = $('#computer-score');
 	$comScoreElem.html(computer.score);
+	$comScoreElem.animateNumber({ number: computer.score });
 }
 
 //유저 점수 갱신
@@ -115,6 +116,7 @@ function updateUserScore(score){
 	user.score += score;
 	let $userScoreElem = $('#user-score');
 	$userScoreElem.html(user.score);
+	$userScoreElem.animateNumber({ number: user.score });
 }
 
 //컴퓨터버튼 비활성화/활성화 : flag
