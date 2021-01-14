@@ -64,9 +64,9 @@ function onUserShoot(shootType){
 	disableComputerButtons(false);
 	
 	//남은 슛 횟수 차감
-	let shotsLeftElem = document.getElementById('shots-left');
+	let $shotsLeftElem = $('#shots-left');
 	game.shotsLeft--;
-	shotsLeftElem.innerHTML = game.shotsLeft;
+	$shotsLeftElem.html(game.shotsLeft);
 	
 	//경기가 끝난 경우 
 	if(game.shotsLeft === 0){
@@ -88,40 +88,35 @@ function onUserShoot(shootType){
 
 //text출력 함수
 function showText(s){
-	let textElem = document.getElementById('text');
-	textElem.innerHTML = s;
+	let $textElem = $('#text');
+	$textElem.html(s);
 }
 
 //컴퓨터 점수 갱신
 function updateComputerScore(score){
 	computer.score += score;
-	let comScoreElem = document.getElementById('computer-score');
-	comScoreElem.innerHTML = computer.score;
+	let $comScoreElem = $('#computer-score');
+	$comScoreElem.html(computer.score);
 }
 
 //유저 점수 갱신
 function updateUserScore(score){
 	user.score += score;
-	let userScoreElem = document.getElementById('user-score');
-	userScoreElem.innerHTML = user.score;
+	let $userScoreElem = $('#user-score');
+	$userScoreElem.html(user.score);
 }
 
 //컴퓨터버튼 비활성화/활성화 : flag
 function disableComputerButtons(flag){
-	let computerButtons = document.getElementsByClassName('btn-computer');
-	
-	for(let i = 0; i < computerButtons.length; i++){
-		computerButtons[i].disabled = flag;
-	}
+	/*jQuery로 셀렉트한 결과에 prop()를 호출하면 
+	  셀렉트된 모든 엘리먼트에 대해 각각 함수를 실행한다.
+	*/
+	$('.btn-computer').prop('disabled',flag);
 }
 
 //유저버튼 비활성화/활성화 : flag
 function disableUserButtons(flag){
-	let userButtons = document.getElementsByClassName('btn-user');
-	
-	for(let i = 0; i < userButtons.length; i++){
-		userButtons[i].disabled = flag;
-	}
+	$('.btn-user').prop('disabled',flag);
 }
 
 //게임 상황에 맞는 확률 적용(ai개선)
