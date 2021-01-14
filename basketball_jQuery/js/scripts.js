@@ -153,3 +153,28 @@ function updateAI() {
     	computer.percent3 = 0.28;
   }
 }
+
+/*
+DOMContentLoaded(모든 DOM 엘리먼트들이 준비되었을 때) 
+이벤트가 발생했을때, 함수실행한다
+*/
+//게임 시작 전, 카운트다운 추가 but, 콜백지옥..
+$(function(){
+	disableUserButtons(true);
+	disableComputerButtons(true);
+	
+	showText(3);
+	
+	setTimeout(function(){
+		showText(2);
+		
+		setTimeout(function(){
+			showText(1);
+			
+			setTimeout(function(){
+				showText('컴퓨터부터 시작합니다!');
+				disableComputerButtons(false);
+			},1000);
+		},1000);
+	},1000);
+});
