@@ -9,6 +9,7 @@ $(function(){
 			let list = data.list;//addr,name
 			let total = data.total;
 			
+			$('.total').html('총' + total + '개의 패스트푸드점을 찾았습니다.');
 		});
 	});
 });
