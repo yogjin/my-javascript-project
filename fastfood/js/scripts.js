@@ -32,7 +32,7 @@ $(function(){
 				//2. 복제한 템플릿에 데이터를 세팅한다.
 				$elem.find('.item-no').html(i+1);
 				$elem.find('.item-name').html(item.name);
-				$elem.find('.item-addr').html(item.total);
+				$elem.find('.item-addr').html(item.addr);
 				
 				//3. 목록에 복제한 템플릿을 추가한다.
 				$list.append($elem);
