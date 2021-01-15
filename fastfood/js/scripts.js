@@ -1,9 +1,16 @@
 //패스트푸드점 api
 const API_URL = 'https://floating-harbor-78336.herokuapp.com/fastfood';
-
+/*
+인자이름		  타입	  	디폴트값	  설명
+page			number		1			페이지 번호
+perPage			number		10			한 페이지에 표시될 항목 갯수
+searchKeyword	string		''			검색 키워드
+*/	
 $(function(){
 	$('.btn-search').click(function(){
-		$.get(API_URL, {}, function(data){
+		let searchKeyword = $('#txt-search').val();
+		
+		$.get(API_URL, {searchKeyword}, function(data){
 			//defalut로 json -> js오브젝트로 변환해준다
 			//data는 list:array, total:Number 로 구성됨
 			let list = data.list;//addr,name
