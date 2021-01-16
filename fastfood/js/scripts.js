@@ -39,4 +39,12 @@ $(function(){
 			}
 		});
 	});
+	
+	//검색창에서 엔터를 누르면 검색하기
+	$('#txt-search').on('keypress',function(e){
+	if(e.keyCode === 13){
+		//강제로 클릭이벤트 발생
+		$('.btn-search').trigger('click');
+	}
+});
 });
