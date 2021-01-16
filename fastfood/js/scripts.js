@@ -22,6 +22,7 @@ $(function(){
 	});
 });
 
+//검색 함수
 function search(page, perPage, searchKeyword){
 	if(typeof page !== 'number' || page < 1){
 		page = 1;
@@ -62,5 +63,12 @@ function search(page, perPage, searchKeyword){
 			//3. 목록에 복제한 템플릿을 추가한다.
 			$list.append($elem);
 		}
+		
+		showPaging(page);
 	});
+}
+
+//페이징 함수
+function showPaging(page){
+	
 }
