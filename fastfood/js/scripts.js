@@ -10,7 +10,7 @@ $(function(){
 	$('.btn-search').click(function(){
 		let searchKeyword = $('#txt-search').val();
 		
-		search(searchKeyword);
+		search(1,10,searchKeyword);
 	});
 	
 	//검색창에서 엔터를 누르면 검색하기
@@ -22,8 +22,20 @@ $(function(){
 	});
 });
 
-function search(searchKeyword){
-	$.get(API_URL, {searchKeyword}, function(data){
+function search(page, perPage, searchKeyword){
+	if(typeof page !== 'number' || page < 1){
+		page = 1;
+	}
+	
+	if(typeof perPage !== 'number' || perPage <= 0){
+		perPage = 10;
+	}
+	
+	$.get(API_URL, {
+		page: page,
+		perPage: perPage,
+		searchKeyword: searchKeyword
+	}, function(data){
 		//defalut로 json -> js오브젝트로 변환해준다
 		//data는 list:array, total:Number 로 구성됨
 		let list = data.list;//addr,name
