@@ -52,6 +52,19 @@
 	color: #bd5a00;
 }
 
+/* 페이징 css */
+.paging{
+	text-align: center;
+    margin-top: 23px;
+	font-size: 18px;
+}
+
+.paging a {
+    text-decoration: none;
+    margin-right: 8px;
+    color: #bd5a00;
+}
+
 /* 템플릿 css */
 #item-template {
     display: none;
