@@ -44,7 +44,7 @@ function search(page, perPage, searchKeyword){
 			
 		$('.total').html('총' + total + '개의 패스트푸드점을 찾았습니다.');
 			
-		let $list = $('.list');
+		let $list = $('.list').empty();
 		
 		for(let i = 0; i < list.length; i++){
 			//각 item 하나하나마다 DOM 객체를 만들어서 $list에 추가한다.
