@@ -64,12 +64,12 @@ function search(page, perPage, searchKeyword){
 			$list.append($elem);
 		}
 		
-		showPaging(page, perPage, total);
+		showPaging(page, perPage, total, searchKeyword);
 	});
 }
 
 //페이징 함수
-function showPaging(page, perPage, total){
+function showPaging(page, perPage, total, searchKeyword){
 	let $paging = $('.paging').empty();
 	
 	let numPages = 5;//한 화면에 보여질 숫자의 개수
@@ -82,7 +82,7 @@ function showPaging(page, perPage, total){
 	for(let i = pageStart; i <= pageEnd; i++){
 		//페이징 엘리먼트 만들기
 		//i에 해당하는 페이지 search
-		let $elem = $('<a href="javascript:search(' + i + ')">' + i + '</a>');
+		let $elem = $('<a href="javascript:search(' + i + ',' + perPage + ',\'' + searchKeyword +'\')">' + i + '</a>');
 		
 		if(i === page){
 			//현재페이지와 같으면 current class를 부여해서 css로 글씨를 진하게해준다
