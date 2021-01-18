@@ -79,6 +79,15 @@ function showPaging(page, perPage, total, searchKeyword){
 	
 	if(pageEnd > totalPages) pageEnd = totalPages;
 	
+	//이전 페이징 만들기
+	let prevPage = pageStart - 1;
+	if(prevPage < 1) prevPage = 1;
+	
+	let $prevElem = $('<a href="javascript:search(' + prevPage + ',' + perPage + ',\'' + searchKeyword +'\')">' + "이전" + '</a>');
+	$prevElem.addClass('prev');
+	$paging.append($prevElem);
+	
+	//숫자 페이징 만들기
 	for(let i = pageStart; i <= pageEnd; i++){
 		//페이징 엘리먼트 만들기
 		//i에 해당하는 페이지 search
@@ -91,4 +100,12 @@ function showPaging(page, perPage, total, searchKeyword){
 		
 		$paging.append($elem);
 	}
+	
+	//다음 페이징 만들기
+	let nextPage = pageEnd + 1;
+	if(nextPage > totalPages) nextPage = totalPages;
+	
+	let $nextElem = $('<a href="javascript:search(' + nextPage + ',' + perPage + ',\'' + searchKeyword +'\')">' + "다음" + '</a>');
+	$nextElem.addClass('next');
+	$paging.append($nextElem);
 }
