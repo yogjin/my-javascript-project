@@ -65,6 +65,9 @@
     color: #bd5a00;
 }
 
+.current{
+	font-weight: bold;
+}
 /* 템플릿 css */
 #item-template {
     display: none;
