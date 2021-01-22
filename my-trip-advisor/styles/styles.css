@@ -28,6 +28,7 @@ button:hover {
     height: 50px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 100;
+	transition:0.2s;/* 색 반전 매끄럽게 처리 */
 }
 #header span {
     display: inline-block;
