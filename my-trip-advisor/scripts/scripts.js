@@ -6,4 +6,6 @@ $(function(){
 		if(top > 0) $('#header').addClass('inverted');//사용자가 스크롤을 내린상태
 		else $('#header').removeClass('inverted');
 	});
+	
+	$(window).trigger('scroll');
 });
