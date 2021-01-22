@@ -58,7 +58,16 @@ button:hover {
     margin-left: 20px;
     margin-right: 20px;
 }
-
+#header.inverted {
+	background-color:white;
+	border:0;
+}
+#header.inverted span{
+	background-image:url('../images/image_logo_color.png');
+}
+#header.inverted .menu-items a{
+	color:black;
+}
 /* 메인 */
 
 #body {
