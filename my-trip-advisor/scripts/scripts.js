@@ -8,4 +8,10 @@ $(function(){
 	});
 	
 	$(window).trigger('scroll');
+	
+	let dpFrom = $('#from').datepicker({
+		dateFormat: 'yy-mm-dd',
+		minDate:0
+	});
+	//dpFrom.datepicker('setDate',new Date());
 });
