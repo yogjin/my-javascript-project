@@ -38,4 +38,11 @@ $(function(){
 		});
 	}
 	
+	//검색버튼을 클릭했을 때
+	$('#form-search').submit(function(e){//submit은 <form>태그에서만 호출가능하다
+		let from = $('#from').val();
+		let to = $('#to').val();
+		
+		search(from, to);
+	});
 });
