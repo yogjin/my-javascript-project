@@ -11,13 +11,16 @@ $(function(){
 	
 	let dpFrom = $('#from').datepicker({
 		dateFormat: 'yy-mm-dd',
-		minDate:0//0: 오늘 1: 내일 -1: 어제
+		minDate:0,//0: 오늘 1: 내일 -1: 어제
+		onSelect : function(){//dpTo(종료날짜)를 시작날짜보다 전으로 설정하지 못하게 했다
+			dpTo.datepicker('option', 'minDate', dpFrom.datepicker('getDate'));
+		}
 	});
 	dpFrom.datepicker('setDate',new Date());//new Date() == 오늘 날짜 == 0
 	
 	let dpTo = $('#to').datepicker({
 		dateFormat: 'yy-mm-dd',
-		minDate:0
+		minDate: 0
 	});
 	dpTo.datepicker('setDate', 4);//3박 4일 여행 권장. 초기값
 });
