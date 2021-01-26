@@ -169,3 +169,23 @@ button:hover {
 #search-panel .btn-search img {
     vertical-align: middle;
 }
+
+#list-bg {
+    display: none;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    top: 880px;
+    position: absolute;
+}
+
+#list-panel {
+    position: relative;
+    top: 95px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1080px;
+    margin-bottom: 100px;
+}
