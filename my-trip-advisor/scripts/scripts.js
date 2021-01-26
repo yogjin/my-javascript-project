@@ -23,4 +23,19 @@ $(function(){
 		minDate: 0
 	});
 	dpTo.datepicker('setDate', 4);//3박 4일 여행 권장. 초기값
+	
+	//검색기능
+	function search(from, to){
+		let url = 'https://javascript-basic.appspot.com/searchLocation';
+		
+		$.get(url, {
+			from: from,
+			to: to
+		}, function(data){
+			let name = data.name;
+			let cityName = data.cityName;
+			console.log(data);
+		});
+	}
+	
 });
