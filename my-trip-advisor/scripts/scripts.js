@@ -40,6 +40,8 @@ $(function(){
 	
 	//검색버튼을 클릭했을 때
 	$('#form-search').submit(function(e){//submit은 <form>태그에서만 호출가능하다
+		event.preventDefault();//페이지 이동 없이 폼의 내용을 전송한다(submit의 기본동작을 수행하지 않는다)
+		
 		let from = $('#from').val();
 		let to = $('#to').val();
 		
