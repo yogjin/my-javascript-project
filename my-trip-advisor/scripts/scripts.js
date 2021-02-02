@@ -32,9 +32,7 @@ $(function(){
 			from: from,
 			to: to
 		}, function(data){
-			let name = data.name;
-			let cityName = data.cityName;
-			console.log(data);
+			
 		});
 	}
 	
@@ -47,4 +45,20 @@ $(function(){
 		
 		search(from, to);
 	});
+	
+	//템플릿을 이용해 목록 엘리먼트에 들어갈 항목 생성
+	function createListItem(data){
+		let $tmpl = $('#list-item-template').clone().removeAttr('id');
+		
+		$tmpl.find('.list-item-image').attr('src', data.titleImageUrl);
+		$tmpl.find('.list-item-name').html(data.name);
+		$tmpl.find('.list-item-city').html(data.cityName);
+		
+		$tmpl.click(function(e){
+			let url = 'detail.html?id=' + data.id;
+			window.location = url;
+		});
+		
+		return $tmpl;
+	}
 });
