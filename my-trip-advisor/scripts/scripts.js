@@ -31,8 +31,18 @@ $(function(){
 		$.get(url, {
 			from: from,
 			to: to
-		}, function(data){
+		}, function(r){
+			let $list = $('#list-panel');
 			
+			//배열의 요소인 객체를 하나씩 createListItem에 넘긴다.
+			for(let i = 0; i < r.length; i++){
+				let data = r[i];
+				let $item = createListItem(data);
+				
+				$list.append($item);
+			}
+			//숨겨뒀던 list-bg 엘리먼트를 화면에 보이게함
+			$('#list-bg').show();
 		});
 	}
 	
