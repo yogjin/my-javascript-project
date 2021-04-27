@@ -29,5 +29,13 @@ function getDetail(id){
 		$('.detail-header-name').html(r.name);
 		$('.detail-header-city-name').html(r.cityName);
 		$('.detail-desc-text').html(r.desc);
+		
+		let $gallery = $('#detail-images');
+		let images = r.subImageList;
+		
+		for(let i = 0; i < images.length; i++){
+			let $image = $('<img src="'+images[i]+'"/>');
+			$gallery.append($image);
+		}
 	});
 }
