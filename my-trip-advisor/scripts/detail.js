@@ -37,5 +37,9 @@ function getDetail(id){
 			let $image = $('<img src="'+images[i]+'"/>');
 			$gallery.append($image);
 		}
+		
+		//galleria라이브러리 테마 불러온 후 적용.
+		Galleria.loadTheme('libs/galleria/themes/azur/galleria.azur.min.js');
+		Galleria.run('#detail-images');
 	});
 }
