@@ -45,6 +45,26 @@ function getDetail(id){
 		Galleria.run('#detail-images');
 		//지도호출
 		showMap(r.position.x,r.position.y);
+		//여행지 등록하기
+		$('.btn-register').click(function(){
+			let myTrips = Cookies.getJSON('MYTRIPS');//MYTRIPS : 저장할 쿠키의 이름
+			
+			//기존 저장 쿠키가 없을 경우 빈 배열로 초기화
+			if(!myTrips){
+				myTrips = []
+			}
+			//여행지목록를 표시하기 위한 정보: id,여행지 이름,도시명,좌표
+			myTrips.push({
+				id: id,
+				name: r.name,
+				cityName: r.cityName,
+				x: r.position.x,
+				y: r.position.y
+			});
+			//배열을 다시 쿠키에 저장(알아서 JSON.stringfy 해준다)
+			Cookies.set('MYTRIPS',myTrips);
+			alert('여행지가 등록되었습니다!')
+		});
 	});
 }
 //지도 보여주기
