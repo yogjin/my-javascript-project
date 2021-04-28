@@ -4,7 +4,6 @@ $(function(){
 	let id = parseId(window.location.search);
 	
 	getDetail(id);
-	showMap();
 });
 
 //url에서 인자(id) 뽑아내기
@@ -44,15 +43,25 @@ function getDetail(id){
 		//galleria라이브러리 테마 불러온 후 적용.
 		Galleria.loadTheme('libs/galleria/themes/azur/galleria.azur.min.js');
 		Galleria.run('#detail-images');
+		//지도호출
+		showMap(r.position.x,r.position.y);
 	});
 }
 //지도 보여주기
-function showMap(){
+function showMap(lat,lng){
 	map = new google.maps.Map(document.getElementById('map'),{
 		zoom:12,
 		center:{
-			lat:33.3617,
-			lng:126.5292
+			lat:lat,
+			lng:lng
 		}
+	});
+	//지도에 마커 보여주기
+	let marker = new google.maps.Marker({
+		position:{
+			lat:lat,
+			lng:lng
+		},
+		map: map
 	});
 }
