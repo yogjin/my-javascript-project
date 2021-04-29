@@ -1,12 +1,23 @@
 let map
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//지도에 나타난 각 여행지의 라벨
 $(function(){
+	showMap();
+	makeMyTripList();
+});
+
+//지도 보여주기
+function showMap(){
+	map = new google.maps.Map(document.getElementById('map'),{
+		zoom:12,
+	});
+}
+//마이트립 리스트 만들기
+function makeMyTripList(){
 	let myTrips = Cookies.getJSON("MYTRIPS");
 	
 	if(!myTrips){
 		myTrips = []
 	}
-	showMap();
 	let bounds = new google.maps.LatLngBounds();
 	let $list = $('#mytrip-list');
 
@@ -31,11 +42,4 @@ $(function(){
 		bounds.extend(pos);
 	}
 	map.fitBounds(bounds);
-});
-
-//지도 보여주기
-function showMap(){
-	map = new google.maps.Map(document.getElementById('map'),{
-		zoom:12,
-	});
 }
