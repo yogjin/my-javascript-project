@@ -1,4 +1,5 @@
 let map
+const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//지도에 나타난 각 여행지의 라벨
 $(function(){
 	let myTrips = Cookies.getJSON("MYTRIPS");
 	
@@ -17,14 +18,15 @@ $(function(){
 			lng:myTrip.y
 		}
 		let $item = $('#mytrip-item-template').clone().removeAttr('id');
-		$item.find('.item-name').html(myTrip.name);
+		$item.find('.item-name').html(labels[i]+"."+myTrip.name);
 		$item.find('.item-city-name').html(myTrip.cityName);
 		$list.append($item);
 		
 		//지도에 마커 보여주기
 		let marker = new google.maps.Marker({
 			position:pos,
-			map: map
+			map: map,
+			label: labels[i]
 		});
 		bounds.extend(pos);
 	}
