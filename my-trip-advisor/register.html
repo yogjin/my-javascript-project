@@ -8,6 +8,7 @@
   	<link rel="stylesheet" href="styles/styles.css?ver=1"/>
 	
 	<script src="libs/jquery-3.5.1.min.js"></script>
+	<script src="libs/jquery-ui/jquery-ui.min.js"></script>
   	<script src="scripts/register.js"></script>
 </head>
 <body class="gray-bg">
@@ -33,7 +34,28 @@
 						<input id="inp-email" type="email" name="email" placeholder="이메일 주소" autofocus />
                         <div class="txt-warning"></div>
 
-                        
+                        <input id="inp-password" type="password" name="password" placeholder="비밀번호" />
+                        <div class="txt-warning"></div>
+                        <input id="inp-confirm" type="password" name="confirm" placeholder="비밀번호 확인" />
+                        <div class="txt-warning"></div>
+
+                        <div class="div-gender">
+                            <input id="inp-male" type="radio" name="gender" value="m" /> <label for="inp-male">남</label>
+                            <input id="inp-female" type="radio" name="gender" value="f" /> <label for="inp-female">여</label>
+                            <span class="txt-warning right"></span>
+                        </div>
+
+                        <div class="div-birth">
+                            <select id="sel-birth">
+                                <option value="">출생년도 선택</option>
+                            </select>
+                            <span class="txt-warning right"></span>
+                        </div>
+
+                        <div class="div-accept">
+                            <input id="inp-accept" type="checkbox" value="accept" /> <label for="inp-accept">회원가입을 위한 개인정보 제공에 동의합니다.</label>
+                            <span class="txt-warning right"></span>
+                        </div>
 
                         <button id="btn-submit" type="submit">가입하기</button>
                         <button id="btn-back" type="button">돌아가기</button>
