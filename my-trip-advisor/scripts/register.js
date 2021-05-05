@@ -23,6 +23,12 @@ $(function(){
 			$('#inp-password').next().html('특수문자와 숫자가 포함된 최소 8자의 문자열이어야 합니다.').show();
 			return;
 		}
+		//성별 로직체크
+		let gender = $('input[name="gender"]:checked').val();
+		if(!gender){
+			$('.div-gender').children('.txt-warning').html('필수 항목입니다.').show();
+			return;
+		}
 		//출생년도 로직체크
 		let birth = $('#sel-birth').val();
 		if(!birth){
