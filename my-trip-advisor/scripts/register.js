@@ -12,12 +12,41 @@ $(function(){
 		
 		let email = $('#inp-email').val();
 		
-		//경고문보이기
+		//이메일 로직체크
 		if(!validateEmail(email)){
 			$('#inp-email').next().html('잘못된 형식 입니다.').show();
 			return;
 		}
-	})
+		//비밀번호 로직체크
+		let password = $('#inp-password').val();
+		if(!validatePassword(password)){
+			$('#inp-password').next().html('특수문자와 숫자가 포함된 최소 8자의 문자열이어야 합니다.').show();
+			return;
+		}
+		//출생년도 로직체크
+		let birth = $('#sel-birth').val();
+		if(!birth){
+			$('#sel-birth').siblings('.txt-warning').html('필수 항목입니다.').show();
+			return;
+		}
+		//개인정보 제공동의여부 체크
+		let accept = $('#inp-accept:checked').val();
+		if(!accept){
+			$('#inp-accept').siblings('.txt-warning').html('필수 항목입니다.').show();
+			return;
+		}
+	});
+	//비밀번호 확인란 로직 체크(실시간)
+	$('#inp-confirm').keyup(function(e){
+		if($(this).val() !== $('#inp-password').val()){
+			$(this).next().html('비밀번호가 일치하지 않습니다.').show();
+			return;
+		}
+		else{
+			$(this).next().empty().hide();
+			return;
+		}
+	});
 });
 
 function validateEmail(email) {
@@ -25,6 +54,10 @@ function validateEmail(email) {
 	return re.test(email); // 형식에 맞는 경우 true 리턴	
 }
 
+function validatePassword(password){
+	let re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+	return re.test(password);
+}
 //출생년도 선택
 function generateYears($select){
 	for(let i = 1970; i <= 2021; i++){
