@@ -41,6 +41,8 @@ $(function(){
 			$('#inp-accept').siblings('.txt-warning').html('필수 항목입니다.').show();
 			return;
 		}
+		//서버로 폼 전송
+		submit(email,password,gender,birth);
 	});
 	//비밀번호 확인란 로직 체크(실시간)
 	$('#inp-confirm').keyup(function(e){
@@ -69,4 +71,16 @@ function generateYears($select){
 	for(let i = 1970; i <= 2021; i++){
 		$select.append('<option value="'+i+'">'+i+'</option>');
 	}
+}
+//서버로 회원가입 폼 전송
+function submit(email,password,gender,birth){
+	let params ={
+		email: email,
+		password: password,
+		gender: gender,
+		birth: birth
+	};
+	$.post('some-api-url',params,function(r){
+		console.log(r);
+	});
 }
