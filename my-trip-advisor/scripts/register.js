@@ -55,6 +55,10 @@ $(function(){
 			return;
 		}
 	});
+	//돌아가기 버튼
+	$('#btn-back').click(function(){
+		location.replace('index.html');
+	});
 });
 
 function validateEmail(email) {
@@ -82,5 +86,6 @@ function submit(email,password,gender,birth){
 	};
 	$.post('some-api-url',params,function(r){
 		console.log(r);
+		alert('회원가입이 완료되었습니다!');
 	});
 }
