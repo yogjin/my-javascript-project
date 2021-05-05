@@ -5,10 +5,10 @@ $(function(){
 	//셀렉트박스 스크롤 설정
 	birthSelect.selectmenu('menuWidget').addClass('overflow');
 	
-	$('form-register').submit(function(e){
+	$('#form-register').submit(function(e){
 		e.preventDefault();
 		//회원가입 창의 경고문 감추기 -> 필요할 때만 보이기
-		$(this).find('txt-warning').empty().hide();
+		$(this).find('.txt-warning').empty().hide();
 		
 		let email = $('#inp-email').val();
 		
