@@ -53,17 +53,22 @@ function getDetail(id){
 			if(!myTrips){
 				myTrips = []
 			}
-			//여행지목록를 표시하기 위한 정보: id,여행지 이름,도시명,좌표
-			myTrips.push({
-				id: id,
-				name: r.name,
-				cityName: r.cityName,
-				x: r.position.x,
-				y: r.position.y
-			});
-			//배열을 다시 쿠키에 저장(알아서 JSON.stringfy 해준다)
-			Cookies.set('MYTRIPS',myTrips);
-			alert('여행지가 등록되었습니다!')
+			if(!isLocExist(myTrips,id)){
+				//여행지목록를 표시하기 위한 정보: id,여행지 이름,도시명,좌표
+				myTrips.push({
+					id: id,
+					name: r.name,
+					cityName: r.cityName,
+					x: r.position.x,
+					y: r.position.y
+				});
+				//배열을 다시 쿠키에 저장(알아서 JSON.stringfy 해준다)
+				Cookies.set('MYTRIPS',myTrips);
+				alert('여행지가 등록되었습니다!');
+			}
+			else{
+				alert('이미 등록된 여행지입니다!');
+			}
 		});
 	});
 }
@@ -84,4 +89,11 @@ function showMap(lat,lng){
 		},
 		map: map
 	});
+}
+//마이트립에 이미 여행지가 존재하는지 체크
+function isLocExist(myTrips,id){
+	for(let i = 0; i < myTrips.length; i++){
+		if(myTrips[i].id === id) return true;
+	}
+	return false;
 }
